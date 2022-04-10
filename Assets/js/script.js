@@ -1,3 +1,5 @@
+console.log("#search-button");
+
 // // global variables
 // const searchHistory = [];
 // const weatherApiUrl = "https://api.openweathermap.org/";
