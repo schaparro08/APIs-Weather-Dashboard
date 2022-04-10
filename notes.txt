@@ -189,3 +189,78 @@
                     </div>
               </div>
             
+
+
+
+
+             <div class="container d-flex align-items-center border border-dark w-75 " id="forecastCards">
+        <div class="row justify-content-end h-100 ">
+            <div class="col-lg-2 mb-4">
+                <div class="card p-5" style="width: 14rem">
+                    <img class="card-img-top" src="" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Date:</h5>
+                        <ul>
+                            <li>Temp:</li>
+                            <li>Wind:</li>
+                            <li>Humidity:</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <div class="card p-5" style="width: 14rem">
+                    <img class="card-img-top" src="" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Date:</h5>
+                        <ul>
+                            <li>Temp:</li>
+                            <li>Wind:</li>
+                            <li>Humidity:</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <div class="card p-5" style="width: 14rem">
+                    <img class="card-img-top" src="" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Date:</h5>
+                        <ul>
+                            <li>Temp:</li>
+                            <li>Wind:</li>
+                            <li>Humidity:</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <div class="card p-5" style="width: 14rem">
+                    <img class="card-img-top" src="" alt="">
+  
+                    <div class="card-body">
+                        <h5 class="card-title">Date:</h5>
+                        <ul>
+                            <li>Temp:</li>
+                            <li>Wind:</li>
+                            <li>Humidity:</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 mb-4">
+                <div class="card p-5" style="width: 14rem">
+                    <img class="card-img-top" src="" alt="">
+  
+                    <div class="card-body">
+                        <h5 class="card-title">Date:</h5>
+                        <ul>
+                            <li>Temp:</li>
+                            <li>Wind:</li>
+                            <li>Humidity:</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
