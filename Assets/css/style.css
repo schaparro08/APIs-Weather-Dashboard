@@ -1,8 +1,10 @@
+
 #search-input {
     width: 100%;
 };
 
-#forecast {
-    font-size: larger;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+
+h3 {
+    font-size: 60px;
 }
