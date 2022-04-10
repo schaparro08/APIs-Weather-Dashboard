@@ -146,3 +146,46 @@
     <script src="./assets/js/script.js"></script>
 </body>
 </html> --> -->
+
+
+
+
+<div id="forecasts">
+        <h3 id="forecasts">5 Day Forecast:</h3>
+         
+            <div class="col">
+                <div class="card " style="width: 8rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+            </div>
+            <div class="col">
+                <div class="card " style="width: 8rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 8rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+            </div>
+            <div class="col">
+                <div class="card" style="width: 8rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+              </div>
+              <div class="col">
+                 <div class="card" style="width: 8rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+              </div>
+            
