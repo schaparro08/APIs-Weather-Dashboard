@@ -7,3 +7,4 @@ function to display all 5 days fo the forecast
 function to display current weather
 function to save searches so that you can click on the left buttons and go back to a previous search 
 add items and get items form local storage for previous searches`
+finish readme.md 
