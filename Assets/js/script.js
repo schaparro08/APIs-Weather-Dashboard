@@ -25,7 +25,10 @@ console.log(searchInput);
 function displaySearchHistory() {
 recentSearches.innerHTML= "";
 //Create a for loop that for each search, input is added to the button. Set I equal to 3
-    
+  for (let i = 3; index < searchInput.length; index++) {
+    const element = searchInput[i];
+    recentSearches.children.textContent = searchInput;
+  }
  
   
 
@@ -65,22 +68,22 @@ recentSearches.innerHTML= "";
 
 
 
-// function weatherData(weatherApiUrl) {
-  // let { lat } = location;
-  //     let { long } = location;
-  //     let cityName = location.name;
+function weatherData(weatherApiUrl) {
+  let { lat } = location;
+      let { long } = location;
+      let cityName = location.name;
   // comment: use entire api link here
-  //     let apiurl = ${weatherApiUrl}...;
-//     fetch(weatherApiUrl)
-//     .then(function(res) {
-//         return res.json()
-//     })
-//     .then(function(data) {
-  // // function renderItems(city, data) {
-// // }
-//         console.log(data)
-//     })
+      let apiurl = ${weatherApiUrl}...;
+    fetch(weatherApiUrl)
+    .then(function(res) {
+        return res.json()
+    })
+    .then(function(data) {
+  // function renderItems(city, data) {
 // }
+        console.log(data)
+    })
+}
 
 // function weatherData(weatherApiUrl);
 // // make a request to the one call and show them how to make api key
