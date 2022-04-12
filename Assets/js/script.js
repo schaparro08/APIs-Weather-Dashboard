@@ -32,39 +32,62 @@ recentSearches.innerHTML= "";
  
   
 
-  }
+//   }
 
-  // Function to append everything to the search history
-  // Local storage function
-  function appendSearchHistory(){
+//   // Function to append everything to the search history
+//   // Local storage function
+//   function appendSearchHistory(){
     
-    //Local storage set item
-    //json stringify 
+//     //Local storage set item
+//     //json stringify 
     
-  }
+//   }
 
 
-  function dayilyWeather () {
-// add code  from slack
+//   function dayilyWeather () {
+// // add code  from slack
 
-  }
-
-
-  function forecasting () {
+//   }
 
 
-    // for the five day forcast
-    //create element, set attribute
-    // for loop for all 5 days of the week
-
-    //add code from slack 
-
-  }
+//   function forecasting () {
 
 
+//     // for the five day forcast
+//     //create element, set attribute
+//     // for loop for all 5 days of the week
+
+//     //add code from slack 
+
+//   }
 
 
 
+
+function apiFunct () {
+  fetch("http://api.openweathermap.org/data/2.5/onecall?lat=56&lon=42&appid=8cd90cfd883306f01cb2ce2e7d9d45b7", {
+  "method": "GET",
+  "headers": {}
+})
+.then(response => {
+  console.log(response);
+})
+.catch(err => {
+  console.error(err);
+});
+fetch("http://api.openweathermap.org/geo/1.0/direct?q=orlando&appid=8cd90cfd883306f01cb2ce2e7d9d45b7&=", {
+  "method": "GET",
+  "headers": {}
+})
+.then(response => {
+  console.log(response);
+})
+.catch(err => {
+  console.error(err);
+});
+
+}
+apiFunct();
 
 
 
@@ -93,4 +116,4 @@ function weatherData(weatherApiUrl) {
 // // 1. geocoding API for lat and long
 
 
-searchBtn.addEventListener("click", displaySearchHistory());
+// searchBtn.addEventListener("click", displaySearchHistory());
