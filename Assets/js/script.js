@@ -1,4 +1,3 @@
-
 // global variables
 const searchHistory = [];
 const weatherApiUrl = "https://api.openweathermap.org/";
@@ -8,112 +7,90 @@ const apikey = "8cd90cfd883306f01cb2ce2e7d9d45b7";
 // // DOM Elments References
 // // #search form, #search-input, #today, #forecast, #history
 let searchForm = document.querySelector("#search-form");
-let searchInput = document.querySelector("#search-input");
-console.log(searchInput);
+
+
 let todayBox = document.querySelector("#currentWeather");
 let forecastBox = document.querySelector("#forecastCards");
-let recentSearches = document.querySelector("#recentSearches")
-let searchBtn = document.querySelector("#search-button")
+let recentSearches = document.querySelector("#recentSearches");
+let searchBtn = document.querySelector("#search-button");
 
 // // add timezone for day.js
-dayjs.extend(window.dayjs_plgin_utc);
+dayjs.extend(window.dayjs_plugin_utc);
 dayjs.extend(window.dayjs_plugin_timezone);
 
-console.log(searchInput);
-
-// function to display search history
-function displaySearchHistory() {
-recentSearches.innerHTML= "";
-//Create a for loop that for each search, input is added to the button. Set I equal to 3
-  for (let i = 3; index < searchInput.length; index++) {
-    const element = searchInput[i];
-    recentSearches.children.textContent = searchInput;
+function renderSearchHistory() {
+  recentSearches.innerHTML = "";
+  for (let index = pastHistory.length; index >= 0; index--) {
+    // create the button
+    //style button
+    // put name of queried city on button
   }
- 
+}
+var pastHistory = JSON.parse(localStorage.getItem("search-history"));
+
+if (pastHistory) {
+  console.log("Success");
+  searchHistory.push(searchInput);
+}
+
+function createHistory(search) {
+  if (searchHistory.indexOf(search) !== -1) {
+    return;
+  }
+  searchHistory.push(search);
+  localStorage.setItem("search-history", JSON.stringify(searchHistory));
+  renderSearchHistory();
+}
+
+function getHistory() {
+  //var let us grab the item from local storge
+  //consitional : if there is something in local storage, then rende it onto the page
+}
+
+function getCityQuards(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-input").value;
+  var city = document.getElementById('city').innerHTML = searchInput;
+
+  fetch(
+    `http:api.openweathermap.org/geo/1.0/direct?q=${searchInput}&limit=5&appid=${apikey}`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      const cityLon = data[0].lon;
+      console.log(cityLon);
+      const cityLat = data[0].lat;
+      console.log(cityLat);
+      getForecast(cityLon, cityLat);
+    });
+}
+
+function getForecast(cityLon, cityLat) {
+  fetch(
+    `https:api.openweathermap.org/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&units=metric&appid=${apikey}`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      renderData(data);
+    });
+}
+
+function renderData (data) {
+    var current = data.current;
+    console.log(current);
+    var currentTemp = document.getElementById('temp').innerHTML = 'Temp: ' + current.temp;
+    var currentWind = document.getElementById('wind').innerHTML = 'Wind Speed: ' + current.wind_speed + ' MPH';
+    var currentHumidity = document.getElementById('humidity').innerHTML = 'Humidity: ' + current.humidity;
+    var currentHumidity = document.getElementById('index').innerHTML = 'UV Index: ' + current.uvi;
   
-
-//   }
-
-//   // Function to append everything to the search history
-//   // Local storage function
-//   function appendSearchHistory(){
-    
-//     //Local storage set item
-//     //json stringify 
-    
-//   }
-
-
-//   function dayilyWeather () {
-// // add code  from slack
-
-//   }
-
-
-//   function forecasting () {
-
-
-//     // for the five day forcast
-//     //create element, set attribute
-//     // for loop for all 5 days of the week
-
-//     //add code from slack 
-
-//   }
-
-
-
-
-function apiFunct () {
-  fetch("http://api.openweathermap.org/data/2.5/onecall?lat=56&lon=42&appid=8cd90cfd883306f01cb2ce2e7d9d45b7", {
-  "method": "GET",
-  "headers": {}
-})
-.then(response => {
-  console.log(response);
-})
-.catch(err => {
-  console.error(err);
-});
-fetch("http://api.openweathermap.org/geo/1.0/direct?q=orlando&appid=8cd90cfd883306f01cb2ce2e7d9d45b7&=", {
-  "method": "GET",
-  "headers": {}
-})
-.then(response => {
-  console.log(response);
-})
-.catch(err => {
-  console.error(err);
-});
-
-}
-apiFunct();
-
-
-
-function weatherData(weatherApiUrl) {
-  let { lat } = location;
-      let { long } = location;
-      let cityName = location.name;
-  // comment: use entire api link here
-      let apiurl = ${weatherApiUrl}...;
-    fetch(weatherApiUrl)
-    .then(function(res) {
-        return res.json()
-    })
-    .then(function(data) {
-  // function renderItems(city, data) {
-// }
-        console.log(data)
-    })
 }
 
-// function weatherData(weatherApiUrl);
-// // make a request to the one call and show them how to make api key
-// // fetch coordinates
-// // fetch weather
+//populate data into html
 
-// // 1. geocoding API for lat and long
-
-
-// searchBtn.addEventListener("click", displaySearchHistory());
+searchBtn.addEventListener("click", getCityQuards);
