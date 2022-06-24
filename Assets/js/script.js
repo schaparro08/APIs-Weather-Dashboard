@@ -11,7 +11,7 @@ let searchedCity = document.querySelector("#search-input").value;
 let recentSearches = document.querySelector("#recentSearches");
 let todayBox = document.querySelector("#currentWeather");
 let forecastBox = document.querySelector("#forecastCards");
-
+let cityButton = document.querySelector(".city-button");
 let searchBtn = document.querySelector("#search-button");
 
 // // add timezone for day.js
@@ -33,14 +33,17 @@ function renderSearchHistory() {
    var createdButton = buttonOrder.appendChild(actualButton);
    actualButton.innerHTML = pastHistory[i];
    actualButton.setAttribute("city", pastHistory[i]);
+  //  actualButton.setAttribute("class", "city-button");
 
    // create the button
     //style button
     // put name of queried city on button
   }
-  
+ 
 }
 
+
+//
 
 function createHistory(search) {
   console.log(search);
@@ -62,14 +65,46 @@ function getHistory() {
     searchHistory = pastHistory;
     
   }
-  renderSearchHistory();
+  
+renderSearchHistory();
+
+
+}
+
+document.addEventListener("DOMContentLoaded",function (e) {
+  console.log(recentSearches);
+  recentSearches.addEventListener("click", pastHistorySearch);
+
+})
+
+function pastHistorySearch (e) {
+  e.preventDefault()
+ let searchInput= e.target.innerHTML;
+ document.getElementById('city').innerHTML = searchInput;
+ createHistory(searchInput);
+
+ fetch(
+   `http:api.openweathermap.org/geo/1.0/direct?q=${searchInput}&limit=5&appid=${apikey}`
+ )
+   .then(function (response) {
+     return response.json();
+   })
+   .then(function (data) {
+     console.log(data);
+     const cityLon = data[0].lon;
+     console.log(cityLon);
+     const cityLat = data[0].lat;
+     console.log(cityLat);
+     getForecast(cityLon, cityLat);
+   });
+
 }
 
 function getCityQuards(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-input").value;
   // var test = document.querySelector(".previousCities").value
-  // var city = document.getElementById('city').innerHTML = searchInput;
+  document.getElementById('city').innerHTML = searchInput;
   createHistory(searchInput);
 
   fetch(
